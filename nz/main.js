@@ -1,3 +1,4 @@
+/*Neuseelandreise Skript*/
 //
 var map = L.map('map').setView([-44.616667, 167.866667], 11);
                   
