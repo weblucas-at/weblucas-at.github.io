@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="de">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuseelandreise</title>
 
+    <!--Tab-Vorschaubild-->
+    <link rel="shortcut icon" href="images/Vulkankegel.jpeg" type="image/jpg">
+    
     <!-- Stile einbauen-->
     <link rel="stylesheet" href="main.css">
-    <!--Vorschaubild-->
-    <link rel="shortcut icon" href="images/Vulkankegel.jpeg" type="image/jpg">
-</head> <header>
-    <img src="Berg mit See im Vordergrund.jpeg" alt="Meer und Berge im Hintergrund">
+    <!--Font awesome einbauen-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <header>
+    <img src="Meer und Berge im Hintergrund.jpeg" alt="Meer und Berge im Hintergrund">
      <a href="#"><img src="Kea.jpeg" alt="Vogel"></a>
          </header>
-         <!--Kartenskript-->
-         <script defer src="main.js"></script>
-<body>
-    <!--Leaflet Bibliothek-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
+   <!-- Leaflet Bibliothek-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!--Kartenskript-->
+<script defer src="main.js"></script>
+
+</head>
+<body> 
     <main class="shadow">
         <header>
-            <img class="banner" src="images/header.jpg" alt="See im Sonnenuntergang">
-            <a href="https://github.com/webmapping"><img class="user shadow" src="images/user.png" alt="Silberfarn in schwarzweißer Grafik"></a>
+            <img class="banner" src="images/Meer und Berge im Hintergrund.jpeg" alt="Meer und Berge im Hintergrund">
+            <a href="https://github.com/webmapping"><img class="user shadow" src="Kea.jpeg"></a>
         </header>
 
         <article>
             <h1></h1>Neuseelandreise</h1>
-            <h2><em>Taupo</em></h2>
+            <h2><em>Milford Sound</em></h2>
             <p>
                 Der <strong>Milford Sound/Piopiotahi</strong> ist ein als Fjord zu bezeichnender Meeresarm auf der Südinsel von Neuseeland <br>
                 Das 14 km lange Gewässer ist eine der bekanntesten Touristenattraktionen des Landes und gehört, <br>
@@ -40,32 +52,33 @@
             </p>
 
             <figure>
-                <img src="images/attracion.jpg" alt="Wasserfall">
+                <img src="Wasserfall.jpeg" alt="Wasserfall">
                 <figcaption><i class="fa-solid fa-camera-retro"></i> Wasserfall. (Quelle: <a
-                        href="https://commons.wikimedia.org/wiki/File:Yacht_on_Lake_Taupo.jpg">wikimedia</a>)
+                        href="https://commons.wikimedia.org/w/index.php?search=wasserfall+Milford+sound&title=Special:MediaSearch&go=Go&type=image">wikimedia</a>)
                 </figcaption>
             </figure>
-
-            <h3>Links</h3>
-            <ul>
-                <li><a href="https://de.wikivoyage.org/wiki/Milford_Sound">wikivoyage</a></li>
-                <li><a href="https://www.newzealand.com/de/milford-sound">Milford Sound Tourismus</a></li>
-            </ul>
+ <h3>Übersichtskarte</h3>
+ <div id="map"></div>
+ <h3>Links</h3>
+ <ul>
+    <li><a href="https://de.wikivoyage.org/wiki/Milford_Sound">wikivoyage</a></li>
+    <li><a href="https://www.newzealand.com/de/milford-sound">Milford Sound Tourismus</a></li>
+</ul>
         </article>
-        git config --global user.email "Lucas.Weinberg@uibk.com"
-        git config --global user.name "Lucas Weinberg"
-    </main>
-    <h3>Übersichtskarte</h3>
-    <div id="map"></div>
-        <footer>
-            <nav>
-                <a href="#">🡰 vorhergehende Etappe</a><i class="fa-solid fa-circle-arrow-left"></i>
-                    <a href="#">nächste Etappe 🡲</a><i class="fa-solid fa-circle-arrow-right"></i>
 
-                <a href="https://webmapping.github.io/nz/index.html">🡰 vorhergehende Etappe</a>
-                <a href="https://mobulu.github.io/nz/index.htmlS">nächste Etappe 🡲</a>
-            </nav>
-        </footer>
+       <footer>
+        <nav>
+
+            <a href="https://webmapping.github.io/nz/index.html">🡰 vorhergehende Etappe <i class="fa-solid fa-circle-arrow-left"></i></a>
+            <a href="https://mobulu.github.io/nz/index.htmlS">nächste Etappe <i class="fa-solid fa-circle-arrow-right"></i></a>
+    
+        </nav>
+       </footer>
     </main>
-</body>
+    git config --global user.email "Lucas.Weinberg@uibk.com"
+    git config --global user.name "Lucas Weinberg"
+
+<script>
+    </script>
+    </body>
 </html>
