@@ -41,3 +41,7 @@ L.marker([lat,lng ]).addTo(map)
 .bindPopup(popup)
 .openPopup();
 
+for(let etappe of ETAPPEN) {
+    //console.log(etappe);
+    L.marker([etappe.lat,etappe.lng ]).addTo(map)
+}
