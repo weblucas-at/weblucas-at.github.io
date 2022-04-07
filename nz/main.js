@@ -42,6 +42,20 @@ L.marker([lat,lng ]).addTo(map)
 .openPopup();
 
 for(let etappe of ETAPPEN) {
+    let popup = `<h3>${etappe.titel} (Etappe${[0].nr}) </h3>
+<ul>
+<li>geogr. Länge: ${etappe.lng}</li>
+<li>geogr. Breite: ${etappe.lat} </li>
+<li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a></li>
+<li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
+</ul>
+`;
     //console.log(etappe);
-    L.marker([etappe.lat,etappe.lng ]).addTo(map)
+    L.marker([etappe.lat, etappe.lng ]).addTo(map).bindPopup(popup);
+}
+L.marker([lat,lng ]).addTo(map)
+for(let hut of HUTS) {
+    let popup = `<h3>${hut.}
+
+
 }
