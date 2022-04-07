@@ -9,12 +9,23 @@ console.log (coords);
 console.log(coords [0]);
 console.log(coords [1]);
 console.log(coords.length);
-let popup = `<h3>Milford Sound </h3>
+let popup = `<h3>${ETAPPEN[0].titel} </h3>
 <ul>
-<li>geogr. Länge: ${lng}</li>
-<li>geogr. Breite: ${lat} </li>
+<li>geogr. Länge: ${ETAPPEN[0].lng}</li>
+<li>geogr. Breite: ${ETAPPEN[0].lat} </li>
+<li><a href="${ETAPPEN[0].wikipedia}">Link zur Wikipediaseite</a></li>
+<li><a href="${ETAPPEN[0].github}">Link zur Etappenseite</a></li>
 </ul>
 `
+
+console.log (ETAPPEN);
+console.log (ETAPPEN[0]);
+console.log (ETAPPEN[0].nr);
+console.log (ETAPPEN[0].github);
+console.log (ETAPPEN[0].titel);
+console.log (ETAPPEN[0].wikipedia);
+console.log (ETAPPEN[0].lat);
+console.log (ETAPPEN[0].lng);
 
 console.log("text");
 console.log('id="map"');
