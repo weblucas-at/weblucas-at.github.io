@@ -53,9 +53,10 @@ for(let etappe of ETAPPEN) {
     //console.log(etappe);
     L.marker([etappe.lat, etappe.lng ]).addTo(map).bindPopup(popup);
 }
-L.marker([lat,lng ]).addTo(map)
-for(let hut of HUTS) {
-    let popup = `<h3>${hut.}
 
+
+//DOC Hütten anzeigen
+for(let hut of HUTS) {
+    L.circleMarker([hut.lat, hut.lng ]).addTo(map);
 
 }
