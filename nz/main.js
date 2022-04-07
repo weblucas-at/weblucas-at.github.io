@@ -7,5 +7,5 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map);
 
 L.marker([-44.616667,167.866667 ]).addTo(map)
-.bindPopup('<h3>Tongariro Nationalpark </h3>.')
+.bindPopup('<h3>Milford Sound </h3>.')
 .openPopup();
