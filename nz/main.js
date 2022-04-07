@@ -9,13 +9,24 @@ console.log (coords);
 console.log(coords [0]);
 console.log(coords [1]);
 console.log(coords.length);
+let popup = `<h3>Milford Sound </h3>
+<ul>
+<li>geogr. Länge: ${lng}</li>
+<li>geogr. Breite: ${lat} </li>
+</ul>
+`
 
-let map = L.map('map').setView([lat, lng], zoom);
+console.log("text");
+console.log('id="map"');
+console.log(`latitude= ${lat}`);
+
+let map = L.map('map').setView(coords, zoom);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 L.marker([lat,lng ]).addTo(map)
-.bindPopup('<h3>Milford Sound </h3>.')
+.bindPopup(popup)
 .openPopup();
+
