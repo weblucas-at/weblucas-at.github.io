@@ -16,7 +16,7 @@ let popup = `<h3>${ETAPPEN[0].titel} (Etappe${[0].nr}) </h3>
 <li><a href="${ETAPPEN[0].wikipedia}">Link zur Wikipediaseite</a></li>
 <li><a href="${ETAPPEN[0].github}">Link zur Etappenseite</a></li>
 </ul>
-`
+`;
 
 //console.log (ETAPPEN);
 //console.log (ETAPPEN[0]);
@@ -42,7 +42,8 @@ L.marker([lat,lng ]).addTo(map)
 .openPopup();
 
 for(let etappe of ETAPPEN) {
-    let popup = `<h3>${etappe.titel} (Etappe${[0].nr}) </h3>
+    let popup = `
+    <h3>${etappe.titel} (Etappe${[0].nr}) </h3>
 <ul>
 <li>geogr. Länge: ${etappe.lng}</li>
 <li>geogr. Breite: ${etappe.lat} </li>
@@ -52,6 +53,12 @@ for(let etappe of ETAPPEN) {
 `;
     //console.log(etappe);
     L.marker([etappe.lat, etappe.lng ]).addTo(map).bindPopup(popup);
+    //Etappennavigation erweitern
+    let link=`<a href="https://${etappe.github}.github.io/nz/">${etappe.nr}</a>
+    
+    `;
+    document.querySelector("#navigation").innerHTML += link;
+    
 }
 
 
