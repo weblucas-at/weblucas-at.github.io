@@ -70,7 +70,15 @@ for (let hut of HUTS) {
     <a href="${hut.link}" target=Neuseeland> Link zur Hütte</a>
 
     `;
-
-    L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);
+    let statusColor;
+    if (hut.open == true){
+        statusColor = "green";
+    } else {
+        statusColor = "red";
+    }
+    L.circleMarker([hut.lat, hut.lng],{
+        color: statusColor
+    }
+        ).addTo(map).bindPopup(popup);
 
 }
