@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,32 +12,33 @@
 
     <!--Tab-Vorschaubild-->
     <link rel="shortcut icon" href="images/user.jpg" type="image/jpg">
-    
+
     <!--Font awesome einbauen-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-   <!-- Leaflet Bibliothek-->
+    <!-- Leaflet Bibliothek-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-<!--Etappen-Objekt-->
-<script src="etappen.js"></script>
+    <!--Etappen-Objekt-->
+    <script src="etappen.js"></script>
 
-<!--DOC Hütten-->
-<script src="huts.js"></script>
+    <!--DOC Hütten-->
+    <script src="huts.js"></script>
 
-<!--Kartenskript-->
+    <!--Kartenskript-->
 
-<script defer src="main.js"></script>
+    <script defer src="main.js"></script>
 
 </head>
-<body> 
+
+<body>
     <main class="shadow">
         <header>
             <img class="banner" src="images/header.jpg" alt="Meer und Berge im Hintergrund">
@@ -48,47 +49,53 @@
             <h1>Neuseelandreise</h1>
             <h2><em>Milford Sound</em></h2>
             <p>
-                Der <strong>Milford Sound/Piopiotahi</strong> ist ein als Fjord zu bezeichnender Meeresarm auf der Südinsel von Neuseeland <br>
+                Der <strong>Milford Sound/Piopiotahi</strong> ist ein als Fjord zu bezeichnender Meeresarm auf der
+                Südinsel von Neuseeland <br>
                 Das 14 km lange Gewässer ist eine der bekanntesten Touristenattraktionen des Landes und gehört, <br>
-                da es Teil des Fiordland National Parks im Südwesten der Insel ist, mit zum Weltnaturerbe der UNESCO, bei der die Region seit 1990 unter dem Namen Te Wahipounamu registriert ist. <br> 
-                Der britische Schriftsteller und Dichter Rudyard Kipling soll nach dem Besuch des Milford Sound/Piopiotahi in den 1890er Jahren den Fjord als das achte Weltwunder bezeichnet haben. <br>
+                da es Teil des Fiordland National Parks im Südwesten der Insel ist, mit zum Weltnaturerbe der UNESCO,
+                bei der die Region seit 1990 unter dem Namen Te Wahipounamu registriert ist. <br>
+                Der britische Schriftsteller und Dichter Rudyard Kipling soll nach dem Besuch des Milford
+                Sound/Piopiotahi in den 1890er Jahren den Fjord als das achte Weltwunder bezeichnet haben. <br>
                 (Quelle: <a href="https://de.wikipedia.org/wiki/Milford_Sound/Piopiotahi">Wikipedia</a> )
             </p>
 
             <figure>
                 <img src="attraction.jpeg" alt="Landschaft">
-                <figcaption><i class="fa-solid fa-camera-retro"></i> Wasserfall. (Quelle: <a
+                <figcaption><i class="fa-solid fa-camera-retro"></i> Traumhafte Fjordlandschaft. (Quelle: <a
                         href="https://pixabay.com/photos/new-zealand-milford-sound-waterfall-2170678/">pixabay</a>)
                 </figcaption>
             </figure>
 
- <h3>Übersichtskarte</h3>
- <div id="map"></div>
- <div>
-     <nav id="navigation">
-     </nav>
- </div>
+            <h3>Übersichtskarte</h3>
+            <div id="map"></div>
+            <div>
+                <nav id="navigation">
+                </nav>
+            </div>
 
- <h3>Links</h3>
- <ul>
-    <li><a href="https://de.wikivoyage.org/wiki/Milford_Sound">wikivoyage</a></li>
-    <li><a href="https://www.newzealand.com/de/milford-sound">Milford Sound Tourismus</a></li>
-</ul>
+            <h3>Links</h3>
+            <ul>
+                <li><a href="https://de.wikivoyage.org/wiki/Milford_Sound">wikivoyage</a></li>
+                <li><a href="https://www.newzealand.com/de/milford-sound">Milford Sound Tourismus</a></li>
+            </ul>
         </article>
 
-       <footer>
-        <nav>
+        <footer>
+            <nav>
 
-            <a class="back" href="https://csat6290.github.io/nz/index.html"> <i class="fa-solid fa-circle-arrow-left"></i>vorhergehende Etappe</a>
-            <a class="next" href="https://fabiigels.github.io/nz/index.html">nächste Etappe <i class="fa-solid fa-circle-arrow-right"></i></a>
-    
-        </nav>
-       </footer>
+                <a class="back" href="https://csat6290.github.io/nz/index.html"> <i
+                        class="fa-solid fa-circle-arrow-left"></i>vorhergehende Etappe</a>
+                <a class="next" href="https://fabiigels.github.io/nz/index.html">nächste Etappe <i
+                        class="fa-solid fa-circle-arrow-right"></i></a>
+
+            </nav>
+        </footer>
     </main>
     git config --global user.email "Lucas.Weinberg@uibk.com"
     git config --global user.name "Lucas Weinberg"
 
-<script>
+    <script>
     </script>
-    </body>
+</body>
+
 </html>

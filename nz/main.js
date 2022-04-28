@@ -4,7 +4,7 @@ let lat = -44.616667;
 let lng = 167.866667;
 let zoom = 11;
 
-  let coords = [ -39.13, 175.65];
+let coords = [-39.13, 175.65];
 //console.log (coords);   
 //console.log(coords [0]);
 //console.log(coords [1]);
@@ -34,14 +34,14 @@ let popup = `<h3>${ETAPPEN[0].titel} (Etappe${[0].nr}) </h3>
 let map = L.map('map').setView(coords, zoom);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.marker([lat,lng ]).addTo(map)
-.bindPopup(popup)
-.openPopup();
+L.marker([lat, lng]).addTo(map)
+    .bindPopup(popup)
+    .openPopup();
 
-for(let etappe of ETAPPEN) {
+for (let etappe of ETAPPEN) {
     let popup = `
     <h3>${etappe.titel} (Etappe${[0].nr}) </h3>
 <ul>
@@ -52,19 +52,18 @@ for(let etappe of ETAPPEN) {
 </ul>
 `;
     //console.log(etappe);
-    L.marker([etappe.lat, etappe.lng ]).addTo(map).bindPopup(popup);
+    L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
     //Etappennavigation erweitern
-    let link=`<a href="https://${etappe.github}.github.io/nz/" class="etappenLink" title="${etappe.title}">${etappe.nr}</a>
-    
-    `;
+
+    let link = `<a href="https://${etappe.github}.github.io/nz/" class="etappenLink" title="${etappe.title}">${etappe.nr}</a>`;
     document.querySelector("#navigation").innerHTML += link;
 
 }
 
 
 //DOC Hütten anzeigen
-for(let hut of HUTS) {
-    let popup =`
+for (let hut of HUTS) {
+    let popup = `
     <h3>${hut.name}</h3>
     <h4>${hut.region}</h4>
     <hr>
@@ -75,6 +74,6 @@ for(let hut of HUTS) {
 
     `;
 
-    L.circleMarker([hut.lat, hut.lng ]).addTo(map).bindPopup(popup);
+    L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);
 
 }
