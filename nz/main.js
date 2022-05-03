@@ -81,8 +81,7 @@ for (let hut of HUTS) {
 
     }
         ).addTo(map).bindPopup(popup);
-        let startLayer = L.tileLayer.provider("BasemapAT.grau");
-
+}
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
@@ -91,9 +90,9 @@ L.control.scale({
 L.control.fullscreen().addTo(map);
 
 let miniMap = new L.Control.MiniMap (
-    L.tileLayer.provider("OpenTopoMap"),
+    L.tileLayer.provider("BasemapAT"),
     {"toggleDisplay":"True"}).addTo(map);
-}
+
 
 
 //Leaflet Layer control
