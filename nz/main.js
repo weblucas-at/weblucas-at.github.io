@@ -83,7 +83,24 @@ for (let hut of HUTS) {
         ).addTo(map).bindPopup(popup);
 
 }
+
 //Maßstab hinzugefügt
 L.control.scale({
     imperial: false,
 }).addTo(map);
+
+L.control.fullscreen().addTo(map);
+
+let miniMap = new L.Control.MiniMap (
+    L.tileLayer.provider("BasemapAT"),
+    {"toggleDisplay":"True"}).addTo(map);
+
+//Leaflet Layer control
+
+let layerControl = l.control.layers({
+    "BasemapAT Grau": startLayer,
+    "Basemap Standard": L.tileLayer.provider ("BasemapAT.basemap"),
+    "Basemap High-DPI": L.tileLayer.provider ("BasemapAT.highdpi"),
+    "Basemap Gelände":L.tileLayer.provider ("BasemapAT.terrain"),
+    "Basemap Oberfläche":L.tileLayer.provider ("BasemapAT.surface"),
+});
