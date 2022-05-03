@@ -90,15 +90,15 @@ L.control.scale({
 L.control.fullscreen().addTo(map);
 
 let miniMap = new L.Control.MiniMap (
-    L.tileLayer.provider("BasemapAT"),
+    L.tileLayer.provider("OpenStreetMap"),
     {"toggleDisplay":"True"}).addTo(map);
 
 
 
 //Leaflet Layer control
-let startLayer = L.tileLayer.provider("BasemapAT.OpenToMap");
+let startLayer = L.tileLayer.provider("BasemapAT.OpenStreetMap");
 
-let layerControl = l.control.layers({
+let layerControl = new L.Control.layers({
     "OpenTopoMap": startLayer,
     "Basemap Stamen.Terrain": L.tileLayer.provider ("OpenTopoMap.Stamen.Terrain"),
     "Basemap Esri.WorldStreetMap": L.tileLayer.provider ("OpenTopoMap.Esri.WorldStreetMap"),
