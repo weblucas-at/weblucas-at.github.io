@@ -81,8 +81,7 @@ for (let hut of HUTS) {
 
     }
         ).addTo(map).bindPopup(popup);
-
-}
+        let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
 //Maßstab hinzugefügt
 L.control.scale({
@@ -92,15 +91,18 @@ L.control.scale({
 L.control.fullscreen().addTo(map);
 
 let miniMap = new L.Control.MiniMap (
-    L.tileLayer.provider("BasemapAT"),
+    L.tileLayer.provider("OpenTopoMap"),
     {"toggleDisplay":"True"}).addTo(map);
+}
+
 
 //Leaflet Layer control
+let startLayer = L.tileLayer.provider("BasemapAT.OpenToMap");
 
 let layerControl = l.control.layers({
-    "BasemapAT Grau": startLayer,
-    "Basemap Standard": L.tileLayer.provider ("BasemapAT.basemap"),
-    "Basemap High-DPI": L.tileLayer.provider ("BasemapAT.highdpi"),
-    "Basemap Gelände":L.tileLayer.provider ("BasemapAT.terrain"),
-    "Basemap Oberfläche":L.tileLayer.provider ("BasemapAT.surface"),
+    "OpenTopoMap": startLayer,
+    "Basemap Stamen.Terrain": L.tileLayer.provider ("OpenTopoMap.Stamen.Terrain"),
+    "Basemap Esri.WorldStreetMap": L.tileLayer.provider ("OpenTopoMap.Esri.WorldStreetMap"),
+    "Basemap OpenStreetMap.DE":L.tileLayer.provider ("OpenTopoMap.OpenStreetMap.DE"),
+    "Basemap OpenStreetMap.CH":L.tileLayer.provider ("OpenTopoMap.OpenStreetMap.CH"),
 });
