@@ -59,7 +59,14 @@ let miniMap = new L.Control.MiniMap (
     let response = await fetch(url);
     let geojson = await response.json();
     console.log(geojson);
-    L.geoJSON(geojson).addTo(map);
+
+    let overlay = L.featureGroup();
+
+    layerControl.addOverlay(overlay, "Sehenswürdigkeit");
+    overlay.addTo(overlay);
+    
+
+    L.geoJSON(geojson).addTo(overlay);
 }
 
    loadSites("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SEHENSWUERDIGOGD&srsName=EPSG:4326&outputFormat=json");
