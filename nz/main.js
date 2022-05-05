@@ -91,7 +91,8 @@ L.control.fullscreen().addTo(map);
 
 let miniMap = new L.Control.MiniMap (
     L.tileLayer.provider("OpenStreetMap"),
-    {"toggleDisplay":"True"}).addTo(map);
+    {"toggleDisplay":"True"}
+    ).addTo(map);
 
 
 

@@ -35,12 +35,14 @@ let layerControl = L.control.layers ({
 }). addTo(map);
 layerControl.expand();
 
+/*
 let sightLayer = L.featureGroup();
 
 layerControl.addOverlay(sightLayer, "Sehenswürdigkeit");
 
 let mrk = L.marker ([stephansdom.lat, stephansdom.lng]). addTo(sightLayer);
 sightLayer.addTo(map);
+*/
 
 //Maßstab hinzugefügt
 L.control.scale({
@@ -53,5 +55,11 @@ let miniMap = new L.Control.MiniMap (
     L.tileLayer.provider("BasemapAT"),
     {"toggleDisplay":"True"}).addTo(map);
     
+function addiere(zahl1, zahl2){
+let summe = zahl1 + zahl2;
+return summe;
+}
+let ergebnis = addiere (2,2);
+console.log(ergebnis);
 
     
