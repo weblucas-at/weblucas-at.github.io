@@ -55,11 +55,13 @@ let miniMap = new L.Control.MiniMap (
     L.tileLayer.provider("BasemapAT"),
     {"toggleDisplay":"True"}).addTo(map);
     
-function addiere(zahl1, zahl2){
-let summe = zahl1 + zahl2;
-return summe;
+  async function loadSites(url){
+    let response = await fetch(url);
+    let geojson = await response.json();
+    console.log(geojson);
 }
-let ergebnis = addiere (2,2);
-console.log(ergebnis);
+
+   loadSites("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:SEHENSWUERDIGOGD&srsName=EPSG:4326&outputFormat=json");
+  
 
     
