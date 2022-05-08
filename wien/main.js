@@ -169,6 +169,22 @@ async function loadHotels(url) {
     let response = await fetch(url);
     let geojson = await response.json();
 
+//DOC Hotels anzeigen
+let popup = `
+<h3>${hotel.name}</h3>
+<h4>${hotel.Betriebsart}</h4>
+<h5>${hotel.Kategorie}</h5>
+<h6>${hotel.Adresse}</h6>
+<h7>${hotel.Telefonnummer}</h7>
+<hr>
+<p>${}</p>
+<img src="${hotel.image}" alt="Vorschaubild">
+<hr>
+<a href="${hotel.link}" target=Hotels> Link zum Hotel</a>
+<a href="${hotel.emailadresse}" target=Hotels> Link zum Hotel</a>
+
+`;
+
      //console.log(geojson);
 
      let overlay = L.featureGroup();
