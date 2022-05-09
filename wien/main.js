@@ -180,7 +180,7 @@ async function loadHotels(url) {
         pointToLayer: function(geoJsonPoint,latlng) {
             console.log(geoJsonPoint.properties);
             let popup = `
-            <strong>${geoJsonPoint.properties.Betrieb}</strong><br>
+            <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
              ${geoJsonPoint.properties.BETRIEBSART_TXT} <br>
              ${geoJsonPoint.properties.KATEGORIE_TXT} <br>
              Adresse:   ${geoJsonPoint.properties.ADRESSE} <br>
