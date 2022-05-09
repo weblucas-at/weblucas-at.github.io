@@ -145,7 +145,7 @@ loadStops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&vers
  
      L.geoJSON(geojson).addTo(overlay);
 }
-//loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json");
+loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json");
 
 //Fußgänger
 async function loadZones(url) {
@@ -169,23 +169,7 @@ async function loadHotels(url) {
     let response = await fetch(url);
     let geojson = await response.json();
 
-//DOC Hotels anzeigen
-let popup = `
-<h3>${hotel.name}</h3>
-<h4>${hotel.Betriebsart}</h4>
-<h5>${hotel.Kategorie}</h5>
-<h6>${hotel.Adresse}</h6>
-<h7>${hotel.Telefonnummer}</h7>
-<hr>
-<p>${}</p>
-<img src="${hotel.image}" alt="Vorschaubild">
-<hr>
-<a href="${hotel.link}" target=Hotels> Link zum Hotel</a>
-<a href="${hotel.emailadresse}" target=Hotels> Link zum Hotel</a>
-
-`;
-
-     //console.log(geojson);
+     console.log(geojson);
 
      let overlay = L.featureGroup();
 
@@ -194,20 +178,59 @@ let popup = `
  
      L.geoJSON(geojson, {
         pointToLayer: function(geoJsonPoint,latlng) {
-            //console.log(geoJsonPoint.properties.NAME);
+            console.log(geoJsonPoint.properties);
             let popup = `
-            <strong>${geoJsonPoint.properties.LINE_NAME}</strong><br>
-            Station ${geoJsonPoint.properties.STAT_NAME}
-                
+            <strong>${geoJsonPoint.properties.Betrieb}</strong><br>
+             ${geoJsonPoint.properties.BETRIEBSART_TXT} <br>
+             ${geoJsonPoint.properties.KATEGORIE_TXT} <br>
+             Adresse:   ${geoJsonPoint.properties.ADRESSE} <br>
+             Telefonnummer:   ${geoJsonPoint.properties.KONTAKT_TEL} <br>
+             <hr>
+             <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}">E-Mail</a><br>
+             <a href="${geoJsonPoint.properties.WEBLINK1}">Weblink</a>
+
             `;
-     return L.marker(latlng, {
+            if
+            (geoJsonPoint.properties.BETRIEBSART =="H"){
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl:"icons/hotel_0star.png",
+                        iconAnchor: [16, 37],
+                        popupAnchor: [0, -37]
+                    })
+    }).bindPopup(popup);
+} else if (geoJsonPoint.properties.BETRIEBSART == "P") {
+    return L.marker(latlng, {
         icon: L.icon({
-            iconUrl:"icons/hotel.png",
+            iconUrl: "icons/lodging_0star.png",
             iconAnchor: [16, 37],
             popupAnchor: [0, -37]
         })
-    }).bindPopup(popup);    
-}   
+    }).bindPopup(popup);
+            }else{
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl:"icons/apartment-2.png",
+                        iconAnchor: [16, 37],
+                        popupAnchor: [0, -37]
+                    })
+    }).bindPopup(popup);
+}
+        }
     }).addTo(overlay);
 }
 loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json")
+
+//DOC Hotels anzeigen
+let popup = `
+<h3>${hotel.name}</h3>
+<h4>${hotel.Betriebsart}</h4>
+<h5>${hotel.Kategorie}</h5>
+<h6>${hotel.Adresse}</h6>
+<h7>${hotel.Telefonnummer}</h7>
+<hr>
+<img src="${hotel.image}" alt="Vorschaubild">
+<hr>
+<a href="${hotel.link}" target=Hotels> Link zum Hotel</a>
+<a href="${hotel.emailadresse}" target=Hotels> Link zum Hotel</a>
+`;
