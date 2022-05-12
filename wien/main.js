@@ -178,14 +178,43 @@ loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&vers
 async function loadZones(url) {
     let response = await fetch(url);
     let geojson = await response.json();
+    //console.log(geojson);
+
+    let overlay = L.featureGroup()
+    layerControl.addOverlay(overlay, "Fußgängerzonen Wien");
+    overlay.addTo(map);
+
+// die || sind der logical or operator, wenn dann "" ohne etwas drinnen ist dann steht da nichts falls nichts in der Angabe steht (vermeidet dass null dort steht)
+    L.geoJSON(geojson, {
+        style:function (feature) {
+            return {
+                color: "#F012BE",
+                weight: 1,
+                opacity: 0.1,
+                fillOpacity: 0.1
+            }
+        }
+    }).bindPopup(function (layer) {
+        return`
+           <h4>Fußgängerzone ${layer.feature.properties.ADRESSE}</h4>
+            <p>${layer.feature.properties.ZEITRAUM || ""}</p>
+            <p>${layer.feature.properties.AUSN_TEXT || ""}</p>
+        `;
+    }).addTo(overlay);
+}
+loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json");
+/*async function loadZones(url) {
+    let response = await fetch(url);
+    let geojson = await response.json();
 
      //console.log(geojson);
 
-     let overlay = L.featureGroup();
+     let overlay = L.featureGroup()
 
      layerControl.addOverlay(overlay, "Fußgängerzonen");
      overlay.addTo(map);
-    L.geoJSON(geojson, {
+
+    L.geoJSON (geojson, {
         style:function (feature) {
         return {
             color: "#F012BE",
@@ -193,20 +222,19 @@ async function loadZones(url) {
             opacity: 0.1,
             fillOpacity: 0.1
         }
-    }).bindPopup(function(layer){
+    }
+    }).bindPopup(function(layer) {
+
         return`
         <h4> Fußgängerzone${layer.feature.properties.ADRESSE}
-        <p> ${layer.feature.properties.}
-        <p> ${layer.feature.properties.}
-        `
-    }
-    
-    )
+        <p> ${layer.feature.properties.ZEITRAUM ||""}</p>
+        <p> ${layer.feature.properties.AUSN_TEXT||""}</p>
+        `;
+    }).addTo(overlay);
  
-     L.geoJSON(geojson).addTo(overlay);
 }
 loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json")//Fußgänger
-    
+    */
     //Hotel
 async function loadHotels(url) {
     let response = await fetch(url);
@@ -214,7 +242,10 @@ async function loadHotels(url) {
 
      console.log(geojson);
 
-     let overlay = L.featureGroup();
+     let overlay = L.markerClusterGroup({
+         disableClusteringAtZoom: 17
+
+     });
 
      layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
      overlay.addTo(map);
