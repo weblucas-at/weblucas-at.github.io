@@ -11,7 +11,7 @@ let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
 let map = L.map("map", {
     center: [stephansdom.lat, stephansdom.lng],
-    zoom: 12,
+    zoom: 16,
     layers: [
         startLayer
     ],
@@ -252,9 +252,14 @@ async function loadHotels(url) {
  
      L.geoJSON(geojson, {
         pointToLayer: function(geoJsonPoint,latlng) {
-            console.log(geoJsonPoint.properties);
+            let searchList = document.querySelector("#searchList");
+            searchList.innerHTML += `<option value = "${geoJsonPoint.properties.BETRIEB}"></option>`;
+            console.log(document.querySelector("#searchList"))
+            //console.log(`<option value = "${geoJsonPoint.properties.BETRIEB}"></option>`);
+
             let popup = `
-            <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
+
+                <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
              ${geoJsonPoint.properties.BETRIEBSART_TXT} <br>
              ${geoJsonPoint.properties.KATEGORIE_TXT} <br>
              Adresse:   ${geoJsonPoint.properties.ADRESSE} <br>
@@ -292,10 +297,17 @@ async function loadHotels(url) {
 }
         }
     }).addTo(overlay);
+
+    let form = document.querySelector ("#searchForm");
+    console.log (form);
+    form.suchen.onclick = function () {
+        console.log(form.hotel.value);
+
+    }
 }
 loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json")
 
-//DOC Hotels anzeigen
+/*DOC Hotels anzeigen
 let popup = `
 <h3>${hotel.name}</h3>
 <h4>${hotel.Betriebsart}</h4>
@@ -308,3 +320,4 @@ let popup = `
 <a href="${hotel.link}" target=Hotels> Link zum Hotel</a>
 <a href="${hotel.emailadresse}" target=Hotels> Link zum Hotel</a>
 `;
+*/
