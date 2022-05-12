@@ -250,7 +250,7 @@ async function loadHotels(url) {
      layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
      overlay.addTo(map);
  
-     L.geoJSON(geojson, {
+     let hotelsLayer = L.geoJSON(geojson, {
         pointToLayer: function(geoJsonPoint,latlng) {
             let searchList = document.querySelector("#searchList");
             searchList.innerHTML += `<option value = "${geoJsonPoint.properties.BETRIEB}"></option>`;
@@ -302,8 +302,15 @@ async function loadHotels(url) {
     console.log (form);
     form.suchen.onclick = function () {
         console.log(form.hotel.value);
+        hotelsLayer.eachLayer (function(marker){
+            console.log(marker)
+            console.log(marker.getLatLng())
+            console.log(marker.getPopup())
+            console.log(marker.feature.properties.BETRIEB)
+        })
 
     }
+
 }
 loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json")
 
