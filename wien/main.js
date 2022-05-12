@@ -170,7 +170,7 @@ loadStops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&vers
 
         //return layer.feature.properties.LINE_NAME;
 
-    })addTo(overlay);
+    }).addTo(overlay);
 }
 loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json");
 
@@ -185,11 +185,27 @@ async function loadZones(url) {
 
      layerControl.addOverlay(overlay, "Fußgängerzonen");
      overlay.addTo(map);
- 
+    L.geoJSON(geojson, {
+        style:function (feature) {
+        return {
+            color: "#F012BE",
+            weight:1,
+            opacity: 0.1,
+            fillOpacity: 0.1
+        }
+    }).bindPopup(function(layer){
+        return`
+        <h4> Fußgängerzone${layer.feature.properties.ADRESSE}
+        <p> ${layer.feature.properties.}
+        <p> ${layer.feature.properties.}
+        `
+    }
+    
+    )
  
      L.geoJSON(geojson).addTo(overlay);
 }
-//loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json")//Fußgänger
+loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json")//Fußgänger
     
     //Hotel
 async function loadHotels(url) {
